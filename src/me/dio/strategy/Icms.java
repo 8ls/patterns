@@ -2,17 +2,22 @@ package me.dio.strategy;
 
 public class Icms implements Imposto {
 
-    private double valorMercadoria;
+    private final String sigla;
     private double baseDeCalculo;
-    private double aliquota = 0.15;
 
     public Icms(double valorMercadoria) {
-        this.valorMercadoria = valorMercadoria;
-        this.baseDeCalculo = this.valorMercadoria/(1-this.aliquota);
+        this.sigla = "ICMS";
+        this.baseDeCalculo = valorMercadoria/(1-0.15);
     }
 
     @Override
     public double calcular() {
-        return baseDeCalculo*aliquota;
+        return baseDeCalculo*0.15;
     }
+
+    @Override
+    public String getSigla() {
+        return this.sigla;
+    }
+
 }

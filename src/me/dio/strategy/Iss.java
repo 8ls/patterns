@@ -2,15 +2,22 @@ package me.dio.strategy;
 
 public class Iss implements Imposto {
 
-    private double valorServico;
-    private double aliquota = 0.04;
+    private final String sigla;
+    private double baseDeCalculo;
 
     public Iss(double valorServico) {
-        this.valorServico = valorServico;
+        this.sigla = "ISS";
+        this.baseDeCalculo = valorServico;
     }
 
     @Override
     public double calcular() {
-        return valorServico*aliquota;
+        return baseDeCalculo*0.04;
     }
+
+    @Override
+    public String getSigla() {
+        return this.sigla;
+    }
+
 }
